@@ -12,16 +12,17 @@ import { useFetch } from "@/lib/fetch";
 // } from "@/lib/map";
 //import { useDriverStore, useLocationStore } from "@/store";
 import { Driver, MarkerData } from "@/types/type";
+import { useLocationStore } from "@/app/store";
 
 const directionsAPI = process.env.EXPO_PUBLIC_DIRECTIONS_API_KEY;
 
 const Map = () => {
-  // const {
-  //   userLongitude,
-  //   userLatitude,
-  //   destinationLatitude,
-  //   destinationLongitude,
-  // } = useLocationStore();
+  const {
+    userLongitude,
+    userLatitude,
+    destinationLatitude,
+    destinationLongitude,
+  } = useLocationStore();
   // const { selectedDriver, setDrivers } = useDriverStore();
 
   const { data: drivers, loading, error } = useFetch<Driver[]>("/(api)/driver");
